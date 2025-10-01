@@ -1,157 +1,286 @@
-
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-        <!--
-      Notice the use of  in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto Emporium — Premium Cars, Honest Deals</title>
+  <meta name="description" content="Auto Emporium: Discover premium new & pre-owned vehicles. Transparent pricing, test drives, and doorstep delivery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <img src="/assets/logo.svg" alt="Auto Emporium logo" width="32" height="32" />
+        <span>Auto Emporium</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#inventory">Inventory</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#inventory">Inventory</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="btn btn-primary">Contact</a>
+    </div>
+  </header>
 
-      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-        <title>Emergent | Fullstack App</title>
-        <!--
-        These two scripts have been added for the testing, please do not edit or remove them
-        -->
-        <script src="https://unpkg.com/rrweb@latest/dist/rrweb.min.js"></script>
-        <script src="https://d2adkz2s9zrlge.cloudfront.net/rrweb-recorder-20250919-1.js"></script>
-    <script defer src="/static/js/bundle.js"></script></head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Find Your Next <span class="grad">Dream Car</span></h1>
+        <p>Premium new & pre-owned vehicles with transparent pricing and zero hidden fees. Book a test drive today or get doorstep delivery.</p>
+        <div class="hero-cta">
+          <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
+          <a href="#contact" class="btn btn-ghost">Book a Test Drive</a>
+        </div>
+        <ul class="trust-badges">
+          <li>✓ Certified Pre‑Owned</li>
+          <li>✓ 1‑Year Warranty</li>
+          <li>✓ Easy Financing</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="/assets/hero-car.svg" alt="Sport car silhouette" />
+        <div class="stat">
+          <strong>250+</strong>
+          <span>Cars in stock</span>
+        </div>
+        <div class="stat">
+          <strong>4.9★</strong>
+          <span>Customer rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <!-- Inventory -->
+  <section id="inventory" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Featured Inventory</h2>
+        <p>Handpicked cars with full inspection reports and service history.</p>
+      </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <a
-            id="emergent-badge"
-            target="_blank"
-            href="https://app.emergent.sh/?utm_source=emergent-badge"
-            style="
-                display: flex !important;
-                align-items: center !important;
-                position: fixed !important;
-                bottom: 20px;
-                right: 20px;
-                text-decoration: none;
-                padding: 6px 10px;
-                font-family: -apple-system, BlinkMacSystemFont,
-                    &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell,
-                    &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-                    sans-serif !important;
-                font-size: 12px !important;
-                z-index: 9999 !important;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-                border-radius: 8px !important;
-                background-color: #ffffff !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            "
-        >
-            <div
-                style="display: flex; flex-direction: row; align-items: center"
-            >
-                <img
-                    style="width: 20px; height: 20px; margin-right: 8px"
-                    src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4"
-                />
-                <p
-                    style="
-                        color: #000000;
-                        font-family: -apple-system, BlinkMacSystemFont,
-                            &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu,
-                            Cantarell, &quot;Open Sans&quot;,
-                            &quot;Helvetica Neue&quot;, sans-serif !important;
-                        font-size: 12px !important;
-                        align-items: center;
-                        margin-bottom: 0;
-                    "
-                >
-                    Made with Emergent
-                </p>
+      <div class="grid cards">
+        <!-- 8 sample items (replace content/images as needed) -->
+        <article class="card">
+          <img src="/assets/car1.svg" alt="2022 Tesla Model 3" />
+          <div class="card-body">
+            <h3>2022 Tesla Model 3</h3>
+            <p>Long Range • 18,000 km • Single Owner</p>
+            <div class="price-row">
+              <span class="price">₹ 34.5L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
             </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car2.svg" alt="2021 BMW 330i M Sport" />
+          <div class="card-body">
+            <h3>2021 BMW 330i M Sport</h3>
+            <p>Petrol • 24,500 km • Sunroof</p>
+            <div class="price-row">
+              <span class="price">₹ 36.9L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car3.svg" alt="2020 Mercedes C220d" />
+          <div class="card-body">
+            <h3>2020 Mercedes C220d</h3>
+            <p>Diesel • 29,000 km • AMG Line</p>
+            <div class="price-row">
+              <span class="price">₹ 38.2L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car4.svg" alt="2022 Audi Q3 Quattro" />
+          <div class="card-body">
+            <h3>2022 Audi Q3 Quattro</h3>
+            <p>AWD • 14,300 km • Virtual Cockpit</p>
+            <div class="price-row">
+              <span class="price">₹ 39.0L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car5.svg" alt="2019 Jaguar XE" />
+          <div class="card-body">
+            <h3>2019 Jaguar XE</h3>
+            <p>Petrol • 31,500 km • Meridian Audio</p>
+            <div class="price-row">
+              <span class="price">₹ 27.8L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car6.svg" alt="2020 Volvo XC60" />
+          <div class="card-body">
+            <h3>2020 Volvo XC60</h3>
+            <p>Pilot Assist • 22,700 km • Panoramic Roof</p>
+            <div class="price-row">
+              <span class="price">₹ 34.1L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car7.svg" alt="2021 Porsche Macan" />
+          <div class="card-body">
+            <h3>2021 Porsche Macan</h3>
+            <p>AWD • 19,200 km • Sport Chrono</p>
+            <div class="price-row">
+              <span class="price">₹ 57.4L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="/assets/car8.svg" alt="2018 Mini Cooper S" />
+          <div class="card-body">
+            <h3>2018 Mini Cooper S</h3>
+            <p>Turbo • 35,400 km • JCW Kit</p>
+            <div class="price-row">
+              <span class="price">₹ 18.9L</span>
+              <a href="#contact" class="btn btn-outline">Enquire</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why-us" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Why Choose Auto Emporium?</h2>
+        <p>We keep it simple: verified cars, transparent pricing, and delightful service.</p>
+      </div>
+      <div class="grid features">
+        <div class="feature">
+          <div class="icon">🔎</div>
+          <h3>200‑Point Inspection</h3>
+          <p>Every car passes a rigorous checklist with full diagnostics and road test.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🧾</div>
+          <h3>Clear Paperwork</h3>
+          <p>Ownership transfer and finance handled end‑to‑end with no hidden charges.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🚚</div>
+          <h3>Home Delivery</h3>
+          <p>Test drive at your doorstep. Buy online and get delivery within 72 hours.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🛡️</div>
+          <h3>Warranty & Returns</h3>
+          <p>1‑year warranty with 7‑day no‑questions‑asked return window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Loved by Drivers</h2>
+        <p>Real feedback from our happy customers.</p>
+      </div>
+      <div class="grid reviews">
+        <figure class="review">
+          <blockquote>Great selection and super smooth delivery. The car was exactly as described.</blockquote>
+          <figcaption>— Aisha K.</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>Transparent pricing and friendly staff. My best dealership experience so far.</blockquote>
+          <figcaption>— Rohan S.</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>Booked a test drive online and got the car delivered in 3 days. Loved it!</blockquote>
+          <figcaption>— Priyanka D.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact Us</h2>
+        <p>Questions, bookings, or trade‑ins? Send a message and we’ll get back quickly.</p>
+      </div>
+      <form class="contact-form" action="mailto:sales@example.com" method="post" enctype="text/plain">
+        <div class="form-grid">
+          <label>Full Name
+            <input type="text" name="name" required placeholder="Your name" />
+          </label>
+          <label>Phone / WhatsApp
+            <input type="tel" name="phone" required placeholder="+91‑9XXXXXXXXX" />
+          </label>
+          <label>Email
+            <input type="email" name="email" required placeholder="you@example.com" />
+          </label>
+          <label>City
+            <input type="text" name="city" placeholder="e.g., Mumbai" />
+          </label>
+          <label class="full">Message
+            <textarea name="message" rows="4" placeholder="Tell us about the car you're looking for"></textarea>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand small" href="#">
+          <img src="/assets/logo.svg" alt="Auto Emporium logo" width="28" height="28" />
+          <span>Auto Emporium</span>
         </a>
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
-        </script>
-    </body>
+        <p class="muted">© <span id="year"></span> Auto Emporium. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inventory">Inventory</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
 </html>
